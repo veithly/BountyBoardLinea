@@ -401,14 +401,14 @@ function BoardDetails({
         {/* Add Bounty Button */}
         {isCreator && (
           <Button onClick={() => handleOpenModal("addBounty")}>
-            Add Bounty
+            Create Bounty Task
           </Button>
         )}
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-6">
           <TabsList>
-            <TabsTrigger value="bounties">Bounties</TabsTrigger>
+            <TabsTrigger value="bounties">Tasks</TabsTrigger>
             <TabsTrigger value="submissions">
               Members and Submissions
             </TabsTrigger>
@@ -439,7 +439,6 @@ function BoardDetails({
               board={board}
               address={address}
               onOpenReviewSubmissionModal={(submission, bounty) => {
-                setSelectedBountyId(bounty.id);
                 if (isReviewerForBounty(bounty.id)) {
                   handleOpenModal("reviewSubmission", bounty.id, submission);
                 }

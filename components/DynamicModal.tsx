@@ -103,16 +103,21 @@ export default function DynamicModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
           <DialogTitle>{config.title}</DialogTitle>
           <DialogDescription>{config.description}</DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           {config.title === "Review Submission" && selectedSubmission && (
-            <div>
+            <div className="w-full">
               <p className="font-bold">Submission Details:</p>
-              <p>Proof: {selectedSubmission.proof}</p>
+              <p className="mt-2">
+                <span className="font-semibold">Proof:</span>
+                <span className="block max-h-24 overflow-y-auto overflow-x-hidden break-words text-sm w-full">
+                  {selectedSubmission.proof}
+                </span>
+              </p>
             </div>
           )}
           {config.fields.map((field: ModalField) => (
