@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Textarea } from "@/components/ui/textarea";
 import { Check, X, Eye, Circle, CheckCircle } from 'lucide-react'; // 导入新的图标
 import { Board, Bounty, Member, Reviewer, Submission } from '@/types/types';
 import { Address } from './ui/Address';
@@ -130,10 +131,15 @@ export default function MemberSubmissionTable({
             </DialogDescription>
           </DialogHeader>
           {selectedSubmission && (
-            <div className="mt-4">
-              <p className="font-bold">Proof:</p>
-              <p>{selectedSubmission.proof}</p>
-            </div>
+              <p className="mt-2">
+              <span className="font-semibold">Proof:</span>
+              <Textarea
+                value={selectedSubmission.proof}
+                readOnly
+                className="mt-1 resize-none bg-gray-50"
+                rows={3}
+              />
+            </p>
           )}
         </DialogContent>
       </Dialog>

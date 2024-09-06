@@ -114,9 +114,12 @@ export default function DynamicModal({
               <p className="font-bold">Submission Details:</p>
               <p className="mt-2">
                 <span className="font-semibold">Proof:</span>
-                <span className="block max-h-24 overflow-y-auto overflow-x-hidden break-words text-sm w-full">
-                  {selectedSubmission.proof}
-                </span>
+                <Textarea
+                  value={selectedSubmission.proof}
+                  readOnly
+                  className="mt-1 resize-none bg-gray-50"
+                  rows={3}
+                />
               </p>
             </div>
           )}
